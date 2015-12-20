@@ -18,9 +18,11 @@ format.setCurrency(currency);
 String formattedCurrency = format.format(price);
 ```
 
-Under the hood `getCurrencyInstance()` initialises using the default [`Locale`][javaLocale] for the device, so the currency will be formatted properly according to the users locale, which may not be quite what you expect. For instance, British Pounds are formatted as £1.00 on a device running a English (British English) locale, but 1,00 GBP on a Spanish (Spain) locale, since they don't know what a £ sign means. This the correct behavior though, and it's the same as the value that Google Play returns in this situation.
+Under the hood `getCurrencyInstance()` initialises using the default [`Locale`][javaLocale] for the device, so the currency will be formatted properly according to the user's locale, which may not be quite what you expect.
 
-In case you are wondering, the library I am using to call the Google Play In-App Purchase API here is the [android-inapp-billing-v3][inAppBilling] project, a lightweight, developer friendly wrapper for the rather arcane API spec that Google publishes in their documentation.
+For instance, British Pounds are formatted as £1.00 on a device running a English (British English) locale, but 1,00 GBP on a Spanish (Spain) locale, since they don't know what a £ sign means. This the correct behavior though, and it's the same as the value that Google Play returns in this situation.
+
+In case you're wondering; the library I am using to call the Google Play In-App Purchase API here is the [android-inapp-billing-v3][inAppBilling] project, a lightweight, developer friendly wrapper for the rather arcane API spec that Google publishes in their documentation.
 
 [getSkuDetails]:      http://developer.android.com/google/play/billing/billing_reference.html#getSkuDetails
 [javaCurrency]:   http://docs.oracle.com/javase/7/docs/api/java/util/Currency.html
