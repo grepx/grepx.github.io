@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Formatting In-App Purchase Currency in Android
+title:  Formatting In-App Purchase currency in Android
 date:   2015-10-24 21:49:16
 categories: android ui java play in-app purchase date format
 ---

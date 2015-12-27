@@ -9,7 +9,7 @@ When I first started developing Android apps, I have to say I was baffled and ge
 
 >On Android, Context is a god object, and Activity is a context with extra lifecycle. A god with lifecycle? Kind of ironic. Fragments aren’t gods, but they make up for it by having extremely complex lifecycle.
 
-I would further add to this quote by saying that not only are Activities/Fragments treated as god objects by the Android APIs, but they are also then extended and treated as a god object for the app logic by the developers building apps on top of them.
+I would further add to this by saying that not only are Activities/Fragments treated as god objects by the Android APIs, but they are also then extended and treated as a god object for the app logic by the developers building apps on top of them.
 
 Activities and Fragments can often be filled with view logic, business logic, network logic and database logic all in one place, woven across multiple threads and destroyed at any moment by a screen rotation. Even if the code is slightly cleaner and split across multiple classes, those classes often have a tight coupling to the Activity/Fragment god object and their lifetime is tied to the lifetime of the god object.
 
