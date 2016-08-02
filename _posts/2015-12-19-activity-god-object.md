@@ -27,18 +27,6 @@ Beginners in Android development are not taught about how to architect a larger 
 
 Without a very clearly defined architecture regarding threading, you could end up in situations where you have no idea which objects currently exist, which thread you are currently on, or what the lifecycle of the object you are inside of is. A horrible anti-pattern I’ve seen for making sure some code isn’t running on the UI thread is to just often code “defensively” with a `Runnable` inside a thread pool for any logic that is suspected to be long running at some level in that stack, and then eventually get results back to the UI by placing another `Runnable` onto the main thread. Chaos.
 
-##Spaghetti code: endorsed by Google?
-Google seem to care very little about actually helping developers write well structured modern Android apps that are larger than hobby sized projects. Google’s resources for learning Android all teach a spaghetti architecture where everything hangs off the Activity/Fragment god object.
-
-This wasn’t just to make it easy for beginners; they offer no real resources even for experts to learn a more scalable app architecture. I think that part of the problem is that there is still a widely held belief that mobile apps *are* still small weekend projects which of course hasn't been true for a long time.
-
-The only large example app Google publish the source code for is [the Google I/O app][ioapp] which also uses the same spaghetti architecture. The 2015 iteration is admittedly a little better architecturally than previous iterations and has some version of an MVP architecture but I haven’t spent much time going through the source since confirming that it is essentially still a mess. There are better github projects to spend your time learning from (I’ll mention them later).
-[ioapp]: https://github.com/google/iosched
-
-One minor point: Google is clearly on-board with regard to dependency injection on Android. They forked [Square’s Dagger dependency injector][dagger1] to create [Dagger 2][dagger2], creating much confusion in the process over the relative advantages and disadvantages of each which I won’t go into. So why wasn’t it present in this year’s I/O app? Who knows. Dependency Injection is part of the solution to this whole mess and I really like Dagger 2 in particular because it allows you to define different injection scopes (a topic for another day).
-[dagger1]: http://square.github.io/dagger/
-[dagger2]: http://google.github.io/dagger/
-
 ## "Why do Android apps crash so much?"
 Considering Google’s investment in the platform, I find it puzzling that they are content with god objects and spaghetti code as the norm on Android. The Android team made it so that an exception is thrown if you attempt to do networking on the main thread, which forces the developer to keep the UI responsive. Keeping Android apps free of crashes and memory leaks is just as important and will never happen without better architectural practices and assistance available to developers both in the form of educational resources and better libraries. 
 
